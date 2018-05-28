@@ -14,6 +14,7 @@ Scenario: User signs out
   And I fill in "Password" with "12345678"
   And I click "Log in"
   Then I should see "Signed in successfully."
+  And show me the page
   When I click "Sign Out"
   Then I should be redirected to index page
   And I should see "Signed out successfully."

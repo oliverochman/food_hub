@@ -2,6 +2,14 @@ Given('I visit the site') do
   visit root_path
 end
 
+Then("show me the page") do
+  save_and_open_page
+end
+
+Given("the facebook authentication is not granted") do
+  OmniAuth.config.mock_auth[:facebook] = :invalid_credentials
+end
+
 Given("I visit the login page") do
   visit new_user_session_path
 end
@@ -29,7 +37,7 @@ Given('We have the following recipes:') do |table|
     else
       create(:recipe, recipe)
     end
-    
+
   end
 end
 
